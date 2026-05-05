@@ -20,9 +20,9 @@ canvas_result = st_canvas(fill_color="white", stroke_width=20, stroke_color="whi
 # 3. Procesar el dibujo y predecir 
 if canvas_result.image_data is not None: 
 # Convertir el dibujo a 28x28 píxeles (formato MNIST)     
-img = cv2.resize(canvas_result.image_data.astype('uint8'), (28, 28)) 
-img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)     
-img = img / 255.0  # Normalizar 
+ img = cv2.resize(canvas_result.image_data.astype('uint8'), (28, 28)) 
+ img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)     
+ img = img / 255.0  # Normalizar 
      
 # Predicción     
 pred = model.predict(img.reshape(1, 28, 28, 1))     
