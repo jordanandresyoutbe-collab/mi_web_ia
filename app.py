@@ -25,14 +25,14 @@ if canvas_result.image_data is not None:
  img = img / 255.0  # Normalizar 
      
 # Predicción     
-pred = model.predict(img.reshape(1, 28, 28, 1))     
-clase = np.argmax(pred)     
-confianza = np.max(pred) 
-     
-# 4. Mostrar resultados con Umbral de Seguridad     
-st.subheader(f"Resultado: {clase}") 
-if confianza < 0.80:         
-  st.warning(f"Confianza baja ({confianza:.2%}). ¿Podrías dibujar más claro?")     
-else:         
-  st.success(f"Confianza alta: {confianza:.2%}") 
-  st.bar_chart(pred[0]) # Visualización de probabilidades 
+ pred = model.predict(img.reshape(1, 28, 28, 1))     
+ clase = np.argmax(pred)     
+ confianza = np.max(pred) 
+      
+ # 4. Mostrar resultados con Umbral de Seguridad     
+ st.subheader(f"Resultado: {clase}") 
+ if confianza < 0.80:         
+   st.warning(f"Confianza baja ({confianza:.2%}). ¿Podrías dibujar más claro?")     
+ else:         
+   st.success(f"Confianza alta: {confianza:.2%}") 
+   st.bar_chart(pred[0]) # Visualización de probabilidades 
